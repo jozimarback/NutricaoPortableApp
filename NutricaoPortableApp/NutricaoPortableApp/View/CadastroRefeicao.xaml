@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NutricaoPortableApp.View.CadastroRefeicao" Title="Cadastro de refeição">
   <StackLayout Padding="25">
-    <Label Text="Descrição" x:Name="EntDescricao"/>
-    <Entry Placeholder="Ex: Filé de frango"/>
+    <Label Text="Descrição" x:Name="EntDescricao" />
+    <Entry Placeholder="Ex: Filé de frango" Text="{Binding Descricao}"/>
     <StackLayout Orientation="Horizontal">
       <Label Text="Calorias: " />
-      <Label x:Name="LblCalorias" Text="10" />
+      <Label x:Name="LblCalorias" Text="10" BindingContext="{Binding Calorias,TwoWay}" />
     </StackLayout>
-    <Slider Minimum="0" Maximum="1000" ValueChanged="AtualizaContador" x:Name="StpCalorias"/>
-    <Button Text="Salvar" Clicked="SalvaRefeicao" />
+    <Slider Minimum="0" Maximum="1000" x:Name="StpCalorias" Value="{Binding Calorias,TwoWay}"/>
+    <Button Text="Salvar" Command="{Binding SalvaRefeicao}" />
     <!--<Button Text="Abrir lista" Clicked="MostraLista"></Button>-->
   </StackLayout>
 </ContentPage>
